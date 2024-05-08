@@ -26,6 +26,11 @@ textarea {
     h1 {
         margin-bottom: 10px;
     }
+    h2{
+        a{
+            text-decoration: none;
+        }
+    }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -86,35 +91,4 @@ p {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin-bottom: 40px;
-}
-
-footer {
-    margin-top: 45px;
-    padding-top: 5px;
-    border-top: 1px solid #eaeaea;
-    color: #777;
-    link {
-        color: #555;
-        &:hover {
-            color: #222;
-        }
-    }
-
-    small {
-        float: left;
-    }
-
-    ul {
-        float: right;
-        list-style: none;
-        li {
-            float: left;
-            margin-left: 15px;
-        }
-    }
-    nav{
-        link{
-            text-decoration: none;
-        }
-    }
 }

@@ -3,6 +3,7 @@
 $gray-medium-light: #eaeaea;
 $gray-light: #777;
 $gray: #555;
+$gray-darker: #222;
 
 section {
     overflow: auto;
@@ -83,14 +84,12 @@ footer {
     padding-top: 5px;
     border-top: 1px solid $gray-medium-light;
     color: $gray-light;
-    link {
-        color: $gray;
-        &:hover {
-            color: $gray-darker;
-        }
-    }
     small {
         float: left;
+        a{
+            text-decoration: none;
+            color: $gray;
+        }
     }
     ul {
         float: right;
@@ -101,8 +100,12 @@ footer {
         }
     }
     nav{
-        link{
+        a{
             text-decoration: none;
+            color: $gray;
+            &:hover {
+                color: $gray-darker;
+            }
         }
     }
 }
