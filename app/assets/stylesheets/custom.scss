@@ -67,7 +67,6 @@ p {
     }
 }
 
-
 .center.jumbotron {
     background-color: lightgray;
     padding-top: 100px;
@@ -86,7 +85,7 @@ footer {
     padding-top: 5px;
     border-top: 1px solid $gray-medium-light;
     color: $gray-light;
-    a {
+    link {
         color: $gray;
         &:hover {
             color: $gray-darker;
@@ -101,6 +100,11 @@ footer {
         li {
             float: left;
             margin-left: 15px;
+        }
+    }
+    nav{
+        link{
+            text-decoration: none;
         }
     }
 }
