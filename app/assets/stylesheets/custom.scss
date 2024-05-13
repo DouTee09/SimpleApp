@@ -193,4 +193,12 @@ input {
         color: $state-danger-text;
     }
 }
+
+.dropdown-item{
+    text-decoration: none;
+    a{
+        color: #222;
+        text-decoration: none;
+    }
+}
     
