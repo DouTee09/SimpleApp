@@ -6,7 +6,7 @@
           <li class="nav-item"><%= link_to "Home", root_path, class:"nav-link" %></li>
           <li class="nav-item"><%= link_to "Help", help_path, class:"nav-link" %></li>
           <% if logged_in? %>
-            <li class="nav-item"><%= link_to "Users", '#', class:"nav-link" %></li>
+            <li class="nav-item"><%= link_to "Users", users_path, class:"nav-link" %></li>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -18,7 +18,7 @@
                   </button>
                   <ul class="dropdown-menu">
                     <li class="dropdown-item"><%= link_to "Profile", current_user %></li>
-                    <li class="dropdown-item"><%= link_to "Setting", '#'%></li>
+                    <li class="dropdown-item"><%= link_to "Setting", edit_user_path(current_user)%></li>
                     <li class="dropdown-item"><%= link_to "Log out", logout_path, method: :delete %></li>
                   </ul>
                 </li>
