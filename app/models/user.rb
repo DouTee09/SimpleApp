@@ -3,6 +3,7 @@ class User < ApplicationRecord
   before_save :downcase_email
   before_create :create_activation_digest
   scope :activated, -> { where(activated: true) }
+  has_many :microposts, dependent: :destroy
 
   before_validation { self.email = email.downcase}
   validates :name, presence: true, length: { maximum: 50 }

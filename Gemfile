@@ -39,7 +39,6 @@ gem 'faker', '3.3.0'
 gem 'kaminari'
 
 gem 'bootstrap5-kaminari-views'
-
 gem 'will_paginate'
 
 group :development, :test do
@@ -69,3 +68,5 @@ end
 gem "letter_opener", "~> 1.10"
 
 gem "letter_opener_web", "~> 3.0"
+
+gem "dotenv", "~> 3.1"
