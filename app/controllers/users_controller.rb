@@ -7,12 +7,11 @@ class UsersController < ApplicationController
   before_action :user_role_delete, only: :destroy
 
   def index
-    @users = User.where(activated: true).paginate(page: params[:page], per_page: 20)
+    @users = User.activated.paginate(page: params[:page], per_page: 20)
   end
 
   def show
-    @user = User.find(params[:id])
-    redirect_to root_url and return unless true
+    
   end
 
   def new
@@ -26,7 +25,7 @@ class UsersController < ApplicationController
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -37,7 +36,7 @@ class UsersController < ApplicationController
       flash[:success] = "Profile updated"
       redirect_to @user
     else
-      render 'edit'
+      render :edit
     end
   end
 

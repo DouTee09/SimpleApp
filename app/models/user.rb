@@ -1,9 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
-  before_save :downcase_email
   before_create :create_activation_digest
   scope :activated, -> { where(activated: true) }
-
   before_validation { self.email = email.downcase}
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -77,29 +75,7 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
-  def edit
-    user = User.find_by(email: params[:email])
-    if user&.can_be_activated?(params[:id])
-      activate_user(user)
-      log_in user
-      flash[:success] = "Account activated!"
-      redirect_to user
-    else
-      flash[:danger] = "Invalid activation link"
-      redirect_to root_url
-    end
-  end
-
   private
-    def activate_user(user)
-      user.update(activated: true, activated_at: Time.zone.now)
-    end
-
-    # Converts email to all lower-case.
-    def downcase_email
-      self.email = email.downcase
-    end
-
     # Creates and assigns the activation token and digest.
     def create_activation_digest
       self.activation_token = User.new_token
