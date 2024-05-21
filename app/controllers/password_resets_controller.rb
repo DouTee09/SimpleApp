@@ -30,6 +30,7 @@ class PasswordResetsController < ApplicationController
       flash[:success] = "Password has been reset."
       redirect_to @user
     else
+      flash[:success] = "A failed update due to an invalid password!"
       render :edit
     end
   end
