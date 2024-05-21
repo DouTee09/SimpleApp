@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
   before_create :create_activation_digest
   scope :activated, -> { where(activated: true) }
@@ -87,6 +88,13 @@ class User < ApplicationRecord
       redirect_to root_url
     end
   end
+
+  # Defines a proto-feed.
+  # See "Following users" for the full implementation.
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+
 
   private
     # Creates and assigns the activation token and digest.

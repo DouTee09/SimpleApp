@@ -273,6 +273,9 @@ input {
         margin-right: 10px;
         margin-top: 5px;
     }
+    a{
+        text-decoration: none;
+    }
 }
 aside {
     textarea {
@@ -284,5 +287,11 @@ span.image {
     margin-top: 10px;
     input {
         border: 0;
+    }
+}
+
+.user_info{
+    a{
+        text-decoration: none;
     }
 }

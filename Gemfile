@@ -38,6 +38,12 @@ gem 'faker', '3.3.0'
 
 gem 'kaminari'
 
+gem 'image_processing'
+
+gem 'mini_magick'
+
+gem 'active_storage_validations'
+
 gem 'bootstrap5-kaminari-views'
 
 group :development, :test do

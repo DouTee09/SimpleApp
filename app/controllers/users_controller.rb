@@ -5,10 +5,11 @@ class UsersController < ApplicationController
   before_action :user_role_delete, only: :destroy
 
   def index
-    @users = User.activated.paginate(page: params[:page], per_page: 20)
+    @users = User.activated.page(params[:page]).per(20)
   end
 
   def show
+    @microposts = @user.microposts.page(params[:page]).per(15)
   end
 
   def new

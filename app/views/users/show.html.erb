@@ -14,12 +14,15 @@
             <ol class="microposts">
                 <%= render @microposts %>
             </ol>
-
-            <div class="d-flex justify-content-center">
-            <%= paginate @microposts, window: 2, theme: 'bootstrap-5',
-                   pagination_class: "pagination-sm flex-wrap justify-content-center",
-                   nav_class: "d-inline-block" %>
-            </div>
         <% end %>
+        <div class="d-flex justify-content-left">
+                <%= paginate @microposts, window: 2, theme: 'bootstrap-5',
+                    pagination_class: "pagination-sm flex-wrap justify-content-center",
+                    nav_class: "d-inline-block" %>
+        </div>
     </div>
 </div>
+
+
+
+
