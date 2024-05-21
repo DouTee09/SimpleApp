@@ -67,3 +67,5 @@ end
 gem "letter_opener", "~> 1.10"
 
 gem "letter_opener_web", "~> 3.0"
+
+gem "dotenv", "~> 3.1"

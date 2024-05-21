@@ -75,6 +75,19 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
+  def edit
+    user = User.find_by(email: params[:email])
+    if user&.can_be_activated?(params[:id])
+      activate_user(user)
+      log_in user
+      flash[:success] = "Account activated!"
+      redirect_to user
+    else
+      flash[:danger] = "Invalid activation link"
+      redirect_to root_url
+    end
+  end
+
   private
     # Creates and assigns the activation token and digest.
     def create_activation_digest
