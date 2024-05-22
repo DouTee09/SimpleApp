@@ -95,7 +95,6 @@ class User < ApplicationRecord
     Micropost.where("user_id = ?", id)
   end
 
-
   private
     # Creates and assigns the activation token and digest.
     def create_activation_digest
