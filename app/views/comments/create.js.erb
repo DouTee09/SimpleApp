@@ -1,0 +1,1 @@
+$("#comment_box_<%= @micropost.id %>").append("<%= escape_javascript(render('comments/comment', comment: @comment)) %>");
