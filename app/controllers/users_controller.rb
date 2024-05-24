@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy,
-                                        :following, :followers]
+                                        :following, :show]
   before_action :find_user, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
   before_action :user_role_delete, only: :destroy
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def show
     @microposts = @user.microposts.page(params[:page]).per(15)
+    @comment = Comment.new
   end
 
   def new
@@ -48,7 +49,7 @@ class UsersController < ApplicationController
   def following
     @title = "Following"
     @user = User.find(params[:id])
-    @users = @user.followers.page(params[:page])
+    @users = @user.following.page(params[:page])
     render 'show_follow'
   end
 
